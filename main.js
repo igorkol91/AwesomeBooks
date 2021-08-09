@@ -54,21 +54,25 @@ createNew.addEventListener('click', (e) => {
   bookTitle.value = '';
   const author = bookAuthor.value;
   bookAuthor.value = '';
-  id = JSON.parse(localStorage.getItem('id'));
-  id += 1;
-  localStorage.setItem('id', JSON.stringify(id));
-  const newBook = new Book();
-  newBook.id = id;
-  newBook.name = name;
-  newBook.author = author;
-  if (localStorage.getItem('bookList').length !== 0) {
-    allBooks = JSON.parse(localStorage.getItem('bookList'));
+  if (name.length < 3 || author.length < 3){
+      console.log('empty fields')
   } else {
-    allBooks = [];
-  }
-
-  allBooks.unshift(newBook);
-  localStorage.setItem('bookList', JSON.stringify(allBooks));
-  bookContainer.innerHTML = '';
-  refreshDOM();
-});
+      id = JSON.parse(localStorage.getItem('id'));
+      id += 1;
+      localStorage.setItem('id', JSON.stringify(id));
+      const newBook = new Book();
+      newBook.id = id;
+      newBook.name = name;
+      newBook.author = author;
+      if (localStorage.getItem('bookList').length !== 0) {
+          allBooks = JSON.parse(localStorage.getItem('bookList'));
+        } else {
+            allBooks = [];
+        }
+        
+        allBooks.unshift(newBook);
+        localStorage.setItem('bookList', JSON.stringify(allBooks));
+        bookContainer.innerHTML = '';
+        refreshDOM();
+    }
+    });
