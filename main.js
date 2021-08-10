@@ -1,16 +1,13 @@
+import Book from './Book.js';
+import Remove from './remove.js';
+
+const remove = new Remove();
 const bookTitle = document.querySelector('#bookname');
 const bookAuthor = document.querySelector('#authorname');
 const createNew = document.querySelector('#createNewButton');
 const bookContainer = document.querySelector('#book-container');
 let allBooks = [];
 let id;
-class Book {
-    id = this.id;
-
-    name = this.name;
-
-    author = this.author;
-}
 if (localStorage.getItem('bookList') === null) {
   localStorage.setItem('bookList', []);
 }
@@ -29,10 +26,7 @@ const refreshDOM = () => {
     removeBtn.innerText = 'Remove';
     removeBtn.addEventListener('click', (e) => {
       const { id } = e.target.parentNode;
-      allBooks = allBooks.filter((book) => book.id.toString() !== id.toString());
-      localStorage.setItem('bookList', JSON.stringify(allBooks));
-      // eslint-disable-next-line
-      location.reload();
+      remove.remove(id);
     });
     const newBook = document.createElement('li');
     const newTitle = document.createElement('p');
@@ -58,10 +52,7 @@ createNew.addEventListener('click', (e) => {
     id = JSON.parse(localStorage.getItem('id'));
     id += 1;
     localStorage.setItem('id', JSON.stringify(id));
-    const newBook = new Book();
-    newBook.id = id;
-    newBook.name = name;
-    newBook.author = author;
+    const newBook = new Book(id, name, author);
     if (localStorage.getItem('bookList').length !== 0) {
       allBooks = JSON.parse(localStorage.getItem('bookList'));
     } else {
