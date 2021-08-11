@@ -1,3 +1,12 @@
 * {
   margin: 0;
 }
+
+.input {
+  border-radius: 5px;
+}
+
+.enter-btn {
+  border-radius: 5px;
+  background-color: rgb(230, 230, 230);
+}
