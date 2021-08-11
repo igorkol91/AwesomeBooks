@@ -26,12 +26,10 @@ const refreshDOM = () => {
     });
     const newBook = document.createElement('li');
     const newTitle = document.createElement('p');
-    const newAuthor = document.createElement('p');
-    newTitle.innerText = bookTitle;
-    newAuthor.innerText = bookAuthor;
+    newBook.classList += 'd-flex w-50 justify-content-between';
+    newTitle.innerHTML = `${bookTitle} by ${bookAuthor}`;
     newBook.id = bookId;
     newBook.appendChild(newTitle);
-    newBook.appendChild(newAuthor);
     newBook.appendChild(removeBtn);
     bookContainer.appendChild(newBook);
   });
