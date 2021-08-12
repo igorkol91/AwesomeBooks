@@ -3,6 +3,7 @@ import Add from './module/add.js';
 
 const add = new Add();
 const remove = new Remove();
+// eslint-disable-next-line
 const { DateTime } = luxon;
 const now = DateTime.now();
 const bookContainer = document.createElement('ul');
