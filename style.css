@@ -3,10 +3,7 @@
 }
 
 .info {
-  list-style: none;
-  background-color: blue;
-}
-
-.myList {
-  background-color: blue;
+  text-align: left;
+  align-self: center;
+  width: 40%;
 }
