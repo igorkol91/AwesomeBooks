@@ -1,3 +1,12 @@
 * {
   margin: 0;
 }
+
+.info {
+  list-style: none;
+  background-color: blue;
+}
+
+.myList {
+  background-color: blue;
+}
