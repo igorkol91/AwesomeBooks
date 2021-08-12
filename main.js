@@ -3,6 +3,8 @@ import Add from './module/add.js';
 
 const add = new Add();
 const remove = new Remove();
+const { DateTime } = luxon;
+const now = DateTime.now();
 const bookContainer = document.createElement('ul');
 const mainContainer = document.querySelector('main');
 const mainPage = document.querySelector('#main-page');
@@ -15,6 +17,9 @@ if (localStorage.getItem('id') === null) {
   localStorage.setItem('id', JSON.stringify(0));
 }
 const refreshDOM = () => {
+  console.log(now.c.year);
+  console.log(now.c.hour);
+  console.log(now.c.minute);
   mainContainer.innerHTML = '';
   allBooks = JSON.parse(localStorage.getItem('bookList'));
   allBooks.forEach((book) => {
@@ -54,7 +59,10 @@ createNewPage.addEventListener('click', (e) => {
   e.preventDefault();
   mainContainer.innerHTML = '';
   const form = document.createElement('form');
+  form.classList += 'd-flex flex-column';
+
   const titleInput = document.createElement('input');
+  titleInput.classList += 'my-3';
   titleInput.type = 'text';
   titleInput.name = 'bookname';
   titleInput.id = 'bookname';
@@ -62,6 +70,7 @@ createNewPage.addEventListener('click', (e) => {
   form.appendChild(titleInput);
 
   const authorInput = document.createElement('input');
+  authorInput.classList += 'my-3';
   authorInput.type = 'text';
   authorInput.name = 'authorname';
   authorInput.id = 'authorname';
