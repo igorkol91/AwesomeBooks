@@ -7,17 +7,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>AwesomeBooks</title>
 </head>
-<body class="d-flex align-items-center text-center flex-column">
-    <h1>Awesome Books</h1>
-    <ul id="book-container" class="w-50 d-flex flex-column align-items-center">
+<body  class="text-center">
+    <ul class="d-flex list-unstyled justify-content-end">
+        <li class="mx-3"><a id="main-page" class="text-decoration-none" href="#">Main Page</a></li>
+        <li class="mx-3"><a id="create-new-page" class="text-decoration-none" href="#">Create New</a></li>
+        <li class="mx-3"><a class="text-decoration-none" href="#">About Us</a></li>
     </ul>
-    <form>
-        <input type="text" name="bookname" id="bookname" placeholder="Title" required>
-        <br><br>
-        <input type="text" name="authoname" id="authorname" placeholder="Author" required>
-        <br><br>
-        <button id="createNewButton" type="button">Submit</button>
-    </form>
+    <h1>Awesome Books</h1>
+    <main  class="d-flex align-items-center flex-column">
+    </main>
+    
     <script src="./main.js" type="module"></script>
 </body>
 </html>
