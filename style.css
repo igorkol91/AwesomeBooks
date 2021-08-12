@@ -9,5 +9,10 @@
 .enter-btn {
   border-radius: 5px;
   background-color: rgb(230, 230, 230);
-  
+}
+
+.info {
+  list-style: circle;
+  margin-top: 15px;
+  text-align: left;
 }
