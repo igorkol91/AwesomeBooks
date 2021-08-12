@@ -9,6 +9,10 @@ const bookContainer = document.createElement('ul');
 const mainContainer = document.querySelector('main');
 const mainPage = document.querySelector('#main-page');
 const createNewPage = document.querySelector('#create-new-page');
+const aboutPage = document.querySelector('#about-page');
+const h1 = document.querySelector('h1');
+const time = document.querySelector('#time-p');
+
 let allBooks = [];
 if (localStorage.getItem('bookList') === null) {
   localStorage.setItem('bookList', []);
@@ -17,9 +21,8 @@ if (localStorage.getItem('id') === null) {
   localStorage.setItem('id', JSON.stringify(0));
 }
 const refreshDOM = () => {
-  console.log(now.c.year);
-  console.log(now.c.hour);
-  console.log(now.c.minute);
+  h1.innerText = 'All Awesome Books';
+  bookContainer.innerHTML = '';
   mainContainer.innerHTML = '';
   allBooks = JSON.parse(localStorage.getItem('bookList'));
   allBooks.forEach((book) => {
@@ -46,6 +49,9 @@ const refreshDOM = () => {
   });
 };
 window.onload = refreshDOM;
+window.onload = () => {
+  time.innerHTML = `${now.c.month} ${now.c.day} ${now.c.year}, ${now.c.hour}:${now.c.minute}:${now.c.second}`;
+};
 
 // Create main page with books list
 
@@ -57,6 +63,7 @@ mainPage.addEventListener('click', () => {
 
 createNewPage.addEventListener('click', (e) => {
   e.preventDefault();
+  h1.innerHTML = 'Add a New Book';
   mainContainer.innerHTML = '';
   const form = document.createElement('form');
   form.classList += 'd-flex flex-column';
@@ -90,4 +97,10 @@ createNewPage.addEventListener('click', (e) => {
     titleInput.value = '';
     authorInput.value = '';
   });
+});
+
+aboutPage.addEventListener('click', (e) => {
+  e.preventDefault();
+  h1.innerHTML = 'Contact Information';
+  mainContainer.innerHTML = '';
 });
