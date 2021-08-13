@@ -32,25 +32,27 @@ const refreshDOM = () => {
     const bookId = book.id;
     const removeBtn = document.createElement('button');
     removeBtn.innerText = 'Remove';
+    removeBtn.classList += 'enter-btn';
     removeBtn.addEventListener('click', (e) => {
       const { id } = e.target.parentNode;
       remove.remove(id);
     });
     const newBook = document.createElement('li');
     const newTitle = document.createElement('p');
-    newBook.classList += 'd-flex w-50 justify-content-between pb-4';
+    newBook.classList += 'd-flex w-100 justify-content-between py-2 my-1';
     newTitle.innerHTML = `${bookTitle} by ${bookAuthor}`;
     newBook.id = bookId;
     newBook.appendChild(newTitle);
     newBook.appendChild(removeBtn);
     bookContainer.appendChild(newBook);
     bookContainer.id = 'book-container';
-    bookContainer.classList += 'w-50 d-flex flex-column align-items-center';
+    bookContainer.classList += 'd-flex flex-column align-items-center book-storage';
     mainContainer.appendChild(bookContainer);
   });
 };
-window.onload = refreshDOM;
+
 window.onload = () => {
+  refreshDOM();
   time.innerHTML = `${now.c.month} ${now.c.day} ${now.c.year}, ${now.c.hour}:${now.c.minute}:${now.c.second}`;
 };
 
@@ -89,6 +91,7 @@ createNewPage.addEventListener('click', (e) => {
   addBTN.id = 'createNewButton';
   addBTN.type = 'button';
   addBTN.innerText = 'Submit';
+  addBTN.classList += 'enter-btn';
   form.appendChild(addBTN);
 
   mainContainer.appendChild(form);
