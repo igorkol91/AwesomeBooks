@@ -24,7 +24,6 @@ if (localStorage.getItem('id') === null) {
 
 const titleCase = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-
 const refreshDOM = () => {
   h1.innerText = 'All Awesome Books';
   bookContainer.innerHTML = '';
