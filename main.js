@@ -21,6 +21,10 @@ if (localStorage.getItem('bookList') === null) {
 if (localStorage.getItem('id') === null) {
   localStorage.setItem('id', JSON.stringify(0));
 }
+
+const titleCase = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
+
+
 const refreshDOM = () => {
   h1.innerText = 'All Awesome Books';
   bookContainer.innerHTML = '';
@@ -40,7 +44,7 @@ const refreshDOM = () => {
     const newBook = document.createElement('li');
     const newTitle = document.createElement('p');
     newBook.classList += 'd-flex w-100 justify-content-between py-2 my-1';
-    newTitle.innerHTML = `${bookTitle} by ${bookAuthor}`;
+    newTitle.innerHTML = `"${titleCase(bookTitle)}" by ${titleCase(bookAuthor)}`;
     newBook.id = bookId;
     newBook.appendChild(newTitle);
     newBook.appendChild(removeBtn);
